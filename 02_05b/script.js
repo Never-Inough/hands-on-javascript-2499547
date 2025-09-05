@@ -14,7 +14,7 @@ import Cardlist from "./components/Cardlist.js";
 // Add license info to each data object.
 const license = {
   license: "Unsplash License",
-  license_uri: "https://unsplash.com/license",
+  license_uri: "https://unsplash.com/license"
 };
 const newData = data.map((imgData) => {
   const newImgData = { ...imgData, ...license };
@@ -22,8 +22,16 @@ const newData = data.map((imgData) => {
 });
 
 const mainContent = document.querySelector(".main-content");
+const loadButton = document.querySelector("#load");
+const loader = document.querySelector(".loader");
 
-mainContent.innerHTML = Cardlist(newData);
+loadButton.addEventListener("click", () => {
+  loader.classList.toggle("hidden");
+  loadButton.classList.toggle("hidden");
+  setTimeout(() => {
+    mainContent.innerHTML = Cardlist(newData);
+  }, 3000);
+});
 
 /**
  * Light/dark mode feature.

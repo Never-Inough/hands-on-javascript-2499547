@@ -6,12 +6,12 @@
  */
 
 import settings from "../settings.js";
+import weatherCard  from "./components/weathercard.js"; 
 
-const tempField = document.querySelector(".getTemp");
-const windSpeed = document.querySelector(".getWSpeed");
-const windDir = document.querySelector(".getWDir");
+
 
 const displayData = () => {
+
   fetch(
     `https://api.openweathermap.org/data/2.5/weather?q=${settings.location}&appid=${settings.appid}`
   )
@@ -20,9 +20,7 @@ const displayData = () => {
     })
     .then(function (data) {
       console.log(data);
-      tempField.innerHTML = data.main.temp;
-      windSpeed.innerHTML = data.wind.speed;
-      windDir.innerHTML = data.wind.deg;
+      document.querySelector('.main-content').innerHTML = weatherCard(data)
     });
 };
 
