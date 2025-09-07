@@ -5,16 +5,17 @@
  * - Create a button for switching between imperial and metric units.
  */
 
-import settings from "../settings.js";
+import settings from "../settings.js ";
 import weatherCard from "./components/weathercard.js";
 
 const mainContent = document.querySelector(".main-content");
+let units = settings.units;
 
-async function displayData() {
+async function displayData(units) {
   fetch(
-    `https://api.openweathermap.org/data/2.5/weather?lat=49.2194636514848&lon=-122.96519638087379&APPID=${settings.appid}`,
+    `https://api.openweathermap.org/data/2.5/weather?q=${settings.location}&appid=${settings.appid}`,
     {
-      method: "GET",
+      method: "GET"
     }
   )
     .then(function (response) {
@@ -22,8 +23,8 @@ async function displayData() {
     })
     .then(function (data) {
       console.log(data);
-      mainContent.innerHTML = weatherCard(data);
+      mainContent.innerHTML = weatherCard(data, units);
     });
 }
 
-displayData();
+displayData(units);

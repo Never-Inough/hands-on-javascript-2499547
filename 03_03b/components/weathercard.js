@@ -19,6 +19,7 @@ const weatherCard = (data) => {
             <span class="temp">${tempConverter(data.main.temp).c.toFixed(
               1
             )}</span><span class="tempunit">°C</span></div>
+
           </div>
           <div class="weathercard__wind">
             <div class="weathercard__wind-speed">
