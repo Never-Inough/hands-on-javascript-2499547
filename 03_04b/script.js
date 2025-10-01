@@ -5,7 +5,7 @@
  * - Create a button for switching between imperial and metric units.
  */
 
-import settings from "../settings.js ";
+import settings from "../settings.js";
 import weatherCard from "./components/weathercard.js";
 
 const mainContent = document.querySelector(".main-content");
